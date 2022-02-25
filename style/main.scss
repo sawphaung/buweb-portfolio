@@ -1,0 +1,477 @@
+// Variables
+$b: #000;
+$w: #fff;
+
+$main-color: #17181c;
+$second-color: #1c2136;
+$third-color: #364069;
+
+$light-color: #efefef;
+
+$roboto: "Roboto", sans-serif;
+$roboto-condense: "Roboto Condensed", sans-serif;
+
+html {
+  scrollbar-color: $third-color $b;
+}
+
+//mixinx
+@mixin sub-heading {
+  font-size: 35px;
+  font-family: $roboto-condense;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 50px;
+  letter-spacing: 0.07em;
+}
+
+// button
+.btn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-resume {
+  @extend .btn;
+  background: $w;
+  color: $main-color;
+}
+
+// Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-width: 350px;
+  max-width: 2000px;
+  margin: 0 auto;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  font-family: $roboto;
+  overflow-x: hidden;
+}
+
+// Header Section
+.nav-header {
+  position: sticky;
+  top: 0;
+  background: $main-color;
+  border-bottom: 2px solid $second-color;
+
+  nav {
+    margin-right: 50px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 60px;
+
+      li {
+        margin: 0 1vw;
+
+        a {
+          display: inline-block;
+          color: $w;
+          padding: 10px;
+          font-size: 18px;
+          text-decoration: none;
+          text-underline-position: under;
+          transition: all 0.3s ease;
+
+          // Hover
+          &:hover {
+            color: $light-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hero Section
+.hero-section {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 750px;
+  background: $main-color;
+
+  // Content wrap
+  .content-wrap {
+    align-self: center;
+    width: 100%;
+    max-width: 550px;
+    margin-left: 3vw;
+
+    .inner-wrap {
+      text-align: center;
+
+      h1 {
+        font-size: 65px;
+        margin: 0 0 10px;
+        color: $w;
+        font-family: $roboto-condense;
+        letter-spacing: 0.07em;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin: 0 0 25px;
+        color: $w;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+      }
+
+      .btn-resume {
+        margin: 0 auto;
+
+        &:hover {
+          background: $third-color;
+          color: $w;
+        }
+      }
+    }
+  }
+
+  // Image Wreap
+  .image-wrap {
+    svg {
+      max-width: 100%;
+    }
+  }
+}
+
+// Buckets Lists
+.bucket-lists {
+  padding: 150px 50px;
+  background: $second-color;
+
+  h2 {
+    @include sub-heading;
+    color: $w;
+    margin-bottom: 50px;
+  }
+
+  .lists-wrap {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    ul {
+      list-style: none;
+      column-gap: 25px;
+      column-count: 2;
+
+      li {
+        display: flex;
+        font-size: 18px;
+        margin-bottom: 25px;
+        color: $w;
+
+        span {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Quick Links Section
+.quick-links {
+  padding: 100px 0;
+  background: #e3e3e3;
+
+  h2 {
+    @include sub-heading;
+    margin-bottom: 35px;
+    color: $b;
+  }
+
+  // Links Wrap
+  .links-wrap {
+    display: flex;
+    justify-content: center;
+
+    .link {
+      display: flex;
+      align-items: center;
+      margin: 0 20px;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: $b;
+        margin-left: 10px;
+        text-underline-position: under;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $second-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Footer Section
+.main-footer {
+  width: 100%;
+  padding: 15px 20px;
+  text-align: center;
+  background: $second-color;
+
+  p {
+    font-size: 16px;
+    color: $w;
+
+    span i {
+      padding: 0 10px;
+      animation: heartbeat 0.7s ease-in infinite;
+    }
+  }
+}
+
+// Animation
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Projects
+.projects-section {
+  padding: 100px 50px;
+  background: $main-color;
+
+  & > h2 {
+    @include sub-heading;
+    font-size: 50px;
+    color: $w;
+    margin-bottom: 70px;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+  gap: 35px;
+
+  & > * {
+    text-decoration: none;
+    background: $third-color;
+    color: $w;
+    padding: 50px 35px;
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      font-family: $roboto-condense;
+      line-height: 1.5;
+
+      span {
+        display: block;
+        font-size: 20px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 5px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 35px;
+
+      li {
+        margin-bottom: 15px;
+
+        a {
+          color: $w;
+          text-underline-position: under;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+    }
+
+    .learn-more {
+      @extend .btn;
+      background: $w;
+      color: $third-color;
+      margin-top: 25px;
+
+      &:hover {
+        background: $main-color;
+        color: $w;
+      }
+    }
+  }
+}
+
+.grid.grid-col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid.grid-col-2 {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 35px;
+}
+
+// About Page
+.about-section {
+  padding: 150px 50px;
+  background: $main-color;
+
+  & > h2 {
+    @include sub-heading;
+    font-size: 50px;
+    margin-bottom: 50px;
+    color: $w;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: $w;
+  }
+
+  .content-center {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .image-wrap {
+    display: flex;
+    gap: 20px;
+    margin: 100px 0 0;
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: calc(100% / 2 - 20px);
+      object-fit: cover;
+    }
+  }
+}
+
+// Resume Page
+.resume-section {
+  padding: 150px 50px;
+  background: $main-color;
+
+  & > h2 {
+    @include sub-heading;
+    font-size: 50px;
+    margin-bottom: 50px;
+    color: $w;
+  }
+
+  .content-center {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+    & > p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 50px;
+      color: $w;
+    }
+  }
+
+  //  List Column 2
+  .col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .workExperience,
+  .education {
+    padding: 50px;
+    background: $light-color;
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: $main-color;
+    }
+
+    // list Style
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 50px;
+        color: $b;
+
+        h3 {
+          font-size: 20px;
+          margin-bottom: 15px;
+          color: $second-color;
+        }
+
+        h4 {
+          font-size: 20px;
+          margin-bottom: 15px;
+          font-style: italic;
+          font-weight: normal;
+          color: $main-color;
+        }
+
+        p {
+          font-size: 16px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
