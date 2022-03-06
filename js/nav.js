@@ -9,6 +9,9 @@ class Nav extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
            <header class="nav-header">
+
+           <input id="nav-toggle" type="checkbox">
+           <label for="nav-toggle" class="toggle"><span></span></label>     
         <nav>
             <ul>
                 <li><a href="./">Home</a></li>
